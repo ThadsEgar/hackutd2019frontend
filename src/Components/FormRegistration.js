@@ -6,19 +6,19 @@ function FormRegistration() {
     return (
            <Form className="registration-form">
                 <h2>Sign Up</h2>
-                <Form.Group controlId="formBasicUsername">
+                <Form.Group controlId="username">
                     <Form.Control type="email" placeholder="Your username" />
                 </Form.Group>
 
-                <Form.Group controlId="formBasicPassword">
+                <Form.Group controlId="userpassword">
                     <Form.Control type="password" placeholder="Password" />
                 </Form.Group>
 
-                <Form.Group controlId="formBasicEmail">
+                <Form.Group controlId="useremail">
                     <Form.Control type="email" placeholder="Enter email..." />
                 </Form.Group>
 
-                <Form.Group controlId="formBasicPhone">
+                <Form.Group controlId="userphone">
                     <Form.Control type="email" placeholder="Your phone number" />
                 </Form.Group>
                 
