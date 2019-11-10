@@ -9,6 +9,10 @@ function FormRegistration() {
     const [userpassword, setUserpassword] = useState({passwordValue:""})
     const [useremail, setUseremail] = useState({emailValue:""})
     const [userphone, setUserphone] = useState({phoneValue:""})
+    const [userlocation, setLocation] = useState({
+        latitude:"",
+        longtitude:""
+    })
 
     function userChangeHandler(e) {
         setUsername({usernameValue:e.target.value})
@@ -41,7 +45,26 @@ function FormRegistration() {
         setUseremail({emailValue:""})
         setUserphone({phoneValue:""})
     }
-    
+
+    function getUserLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(position => {
+                console.log(position)
+                setLocation({
+                    latitude:position.coords.latitude,
+                    longtitude:position.coords.longitude
+                })
+            })
+        }
+        
+    }
+
+    useEffect(() => {
+        setInterval(() =>{
+            getUserLocation()
+        }, 15000)
+    },[])
+
     return (
            <Form className="registration-form" onSubmit= {handleSubmit}>
                 <h2>Sign Up</h2>
