@@ -35,13 +35,18 @@ function FormRegistration() {
         e.preventDefault()
         axios.post("/register", data)
             .then(response => console.log(response))
+        
+        setUsername({usernameValue:""})
+        setUserpassword({passwordValue:""})
+        setUseremail({emailValue:""})
+        setUserphone({phoneValue:""})
     }
     
     return (
            <Form className="registration-form" onSubmit= {handleSubmit}>
                 <h2>Sign Up</h2>
                 <Form.Group controlId="username">
-                    <Form.Control type="text" placeholder="Your username" value={username.usernameValuealue} onChange={userChangeHandler}/>
+                    <Form.Control type="text" placeholder="Your username" value={username.usernameValue} onChange={userChangeHandler}/>
                 </Form.Group>
 
                 <Form.Group controlId="userpassword">
