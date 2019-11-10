@@ -36,6 +36,8 @@ function SignIn(props) {
                 if (response.data) {
                     alert("Log In successfully")
                     props.setLoggedin({isloggedin: true})
+                    localStorage.setItem("data-username", data.username)
+                    localStorage.setItem("data-password", data.userpassword)
                     if (window.confirm('If you click "ok" you would be redirected . Cancel will load this website ')) 
                     {
                         window.location.href='/map';
