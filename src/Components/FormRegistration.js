@@ -32,7 +32,9 @@ function FormRegistration() {
         username: username.usernameValue,
         userpassword: userpassword.passwordValue,
         useremail: useremail.emailValue,
-        userphone: userphone.phoneValue
+        userphone: userphone.phoneValue,
+        userlatitude: userlocation.latitude,
+        userlongitude: userlocation.longtitude
     }
 
     function handleSubmit(e) {
@@ -62,7 +64,8 @@ function FormRegistration() {
     useEffect(() => {
         getUserLocation()
         setInterval(() =>{
-            getUserLocation()
+            axios.post("/updateLocation", data)
+                .then(response => console.log(response))
         }, 15000)
     },[])
 
