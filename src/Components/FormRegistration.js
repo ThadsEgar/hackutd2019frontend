@@ -1,5 +1,6 @@
 import React, {useState,useEffect} from "react"
 import {Button,Form} from "react-bootstrap"
+import {Link} from "react-router-dom"
 import axios from "axios"
 
 
@@ -89,8 +90,12 @@ function FormRegistration() {
                 </Form.Group>
                 
                 <Button variant="secondary" type="submit">
-                    Submit
+                    Sign Up
                 </Button>
+
+                <Form.Text className="text-muted">
+                    <Link to="/sign-in">If you have already had an account, click here !!!</Link>
+                </Form.Text>
             </Form>
     )
 }
