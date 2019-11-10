@@ -1,4 +1,4 @@
-* {
+.App {
   color: #fff;
   text-align: center;
   background-color:#292a2d ;
@@ -6,8 +6,8 @@
 
 .container {
   width: 350px;
-  margin-top: 150px;
-}
+  margin-top: 150px;;
+} 
 
 .form-group {
   margin: 3px;
@@ -16,3 +16,4 @@
 .form-group:last-of-type+button {
   margin-top:15px;
 }
+

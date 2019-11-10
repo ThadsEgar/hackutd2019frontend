@@ -1,0 +1,11 @@
+.webmap {
+    height: 700px;
+    width: 100%;
+
+}
+
+.map {
+    margin-top: 0;
+    width: 100%;
+    height: 100%;
+}

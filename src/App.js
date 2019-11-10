@@ -14,18 +14,20 @@ function App() {
 
   return (
     <div className="App">
-        <Container>
+        
           <Router>
-            <div>
+            {isloggedin && <Route path="/map" component={MapVisual} />}
+            <div className="main">
+            <Container>
               <Route exact path="/" component={FormRegistration}/>
               <Route 
                 path="/sign-in" 
                 render={(props) => <SignIn {...props} isloggedin={isloggedin} setLoggedin={setLoggedin}/>}
               />
-              {isloggedin && <Route path="/map" component={MapVisual} />}
+              </Container>
             </div>
           </Router>
-        </Container>
+        
     </div>
   );
 }
