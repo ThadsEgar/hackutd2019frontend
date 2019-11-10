@@ -28,13 +28,18 @@ export const WebMapView = () => {
         // lazy load the required ArcGIS API for JavaScript modules and CSS
         loadModules([  "esri/Map",
                     "esri/views/MapView",
+                    'esri/WebMap',
                     "esri/Graphic",
                     "esri/tasks/RouteTask",
                     "esri/tasks/support/RouteParameters",
                     "esri/tasks/support/FeatureSet"], { css: true })
-        .then(([ArcGISMap, MapView, Graphic, RouteTask, RouteParameters, FeatureSet]) => {
-          const map = new ArcGISMap({
-            basemap: 'topo-vector'
+        .then(([ArcGISMap, MapView,WebMap, Graphic, RouteTask, RouteParameters, FeatureSet]) => {
+
+          var webmap = new WebMap({
+            portalItem: { // autocasts as new PortalItem()
+              id: '09c0adc9d5344186b9284e929e461384'
+              //09c0adc9d5344186b9284e929e461384
+            }
           });
 
           // Point the URL to a valid route service
@@ -46,8 +51,8 @@ export const WebMapView = () => {
           // load the map view at the ref's DOM node
           const view = new MapView({
             container: mapRef.current,
-            map: map,
-            center: [-105, 39],
+            map: webmap,
+            center: [-96.75, 32.99],
             zoom: 8
           });
 
@@ -58,8 +63,8 @@ export const WebMapView = () => {
               },
               geometry: {
                 type: "point",
-                longitude: userlocation.longitude, // user
-                latitude:  userlocation.latitude // user
+                longitude: -96.75, // user
+                latitude:  32.99// user
               }
             });
 
@@ -70,8 +75,8 @@ export const WebMapView = () => {
               },
               geometry: {
                 type: "point",
-                longitude: -105.2705, // shelter
-                latitude: 40.0150 // shelter
+                longitude: -96.78, // shelter
+                latitude: 33.00 // shelter
               }
             });
 
@@ -90,7 +95,7 @@ export const WebMapView = () => {
                 result.route.symbol = {
                   type: "simple-line",
                   color: "blue",
-                  width: "4px"
+                  width: "5px"
                 };
 
                 view.graphics.add(result.route);
