@@ -25,7 +25,7 @@ function FormRegistration() {
     }
 
     let data = {
-        username: "wiueiweiubw",
+        username: username.usernameValue,
         userpassword: userpassword.passwordValue,
         useremail: useremail.emailValue,
         userphone: userphone.phoneValue
