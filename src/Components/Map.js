@@ -40,8 +40,8 @@ export const WebMapView = () => {
               },
               geometry: {
                 type: "point",
-                longitude: -104.9903,
-                latitude: 39.7392
+                longitude: -104.9903, // user
+                latitude: 39.7392 // user
               }
             });
 
@@ -52,26 +52,14 @@ export const WebMapView = () => {
               },
               geometry: {
                 type: "point",
-                longitude: -105.2705,
-                latitude: 40.0150
-              }
-            });
-            const destinationTwo = new Graphic({
-              symbol: {
-                type: "simple-marker",
-                color: "yellow"
-              },
-              geometry: {
-                type: "point",
-                longitude: -105.2705,
-                latitude: 44.0150
+                longitude: -105.2705, // shelter
+                latitude: 40.0150 // shelter
               }
             });
 
             const route = [origin, destination];
-            const routeTwo = [origin, destinationTwo];
 
-            view.graphics.addMany([route,routeTwo]);
+            view.graphics.addMany(route);
 
             const routeParams = new RouteParameters({
               stops: new FeatureSet({
@@ -88,25 +76,6 @@ export const WebMapView = () => {
                 };
 
                 view.graphics.add(result.route);
-
-              });
-            });
-
-            const routeParamsTwo = new RouteParameters({
-              stops: new FeatureSet({
-                features: routeTwo
-              })
-            });
-
-            routeTask.solve(routeParamsTwo).then(function(data) {
-              data.routeResults.forEach(function(result) {
-                result.routeTwo.symbol = {
-                  type: "simple-line",
-                  color: "blue",
-                  width: "4px"
-                };
-
-                view.graphics.add(result.routeTwo);
 
               });
             });
