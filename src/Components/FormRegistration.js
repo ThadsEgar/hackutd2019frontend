@@ -60,6 +60,7 @@ function FormRegistration() {
     }
 
     useEffect(() => {
+        getUserLocation()
         setInterval(() =>{
             getUserLocation()
         }, 15000)
