@@ -4,7 +4,7 @@
   "private": true,
   "proxy": "http://localhost:4000",
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "bootstrap": "^4.3.1",
     "esri": "0.0.1-security",
     "esri-loader": "^2.12.0",
